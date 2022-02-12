@@ -1,5 +1,0 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/ksk/Downloads/play-samples-play-scala-hello-world-tutorial/app/controllers/TextboardController.scala:13:7: class TextboardController needs to be abstract. Missing implementation for:[0m
-[0m[[0m[31merror[0m] [0m[0m  protected def controllerComponents: play.api.mvc.ControllerComponents // inherited from trait BaseControllerHelpers[0m
-[0m[[0m[31merror[0m] [0m[0mclass TextboardController @Inject()(override val messagesApi: MessagesApi) extends BaseController with I18nSupport {[0m
-[0m[[0m[31merror[0m] [0m[0m      ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
