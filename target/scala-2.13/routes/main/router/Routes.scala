@@ -12,25 +12,25 @@ import _root_.controllers.Assets.Asset
 
 class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
-  // @LINE:7
-  HomeController_1: controllers.HomeController,
-  // @LINE:13
-  Assets_0: controllers.Assets,
+  // @LINE:1
+  TextboardController_0: controllers.TextboardController,
+  // @LINE:4
+  Assets_1: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
 
    @javax.inject.Inject()
    def this(errorHandler: play.api.http.HttpErrorHandler,
-    // @LINE:7
-    HomeController_1: controllers.HomeController,
-    // @LINE:13
-    Assets_0: controllers.Assets
-  ) = this(errorHandler, HomeController_1, Assets_0, "/")
+    // @LINE:1
+    TextboardController_0: controllers.TextboardController,
+    // @LINE:4
+    Assets_1: controllers.Assets
+  ) = this(errorHandler, TextboardController_0, Assets_1, "/")
 
   def withPrefix(addPrefix: String): Routes = {
     val prefix = play.api.routing.Router.concatPrefix(addPrefix, this.prefix)
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, HomeController_1, Assets_0, prefix)
+    new Routes(errorHandler, TextboardController_0, Assets_1, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -38,9 +38,8 @@ class Routes(
   }
 
   def documentation = List(
-    ("""GET""", this.prefix, """controllers.HomeController.index()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """explore""", """controllers.HomeController.explore()"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """tutorial""", """controllers.HomeController.tutorial()"""),
+    ("""GET""", this.prefix, """controllers.TextboardController.get()"""),
+    ("""POST""", this.prefix, """controllers.TextboardController.post()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -49,66 +48,48 @@ class Routes(
   }}
 
 
-  // @LINE:7
-  private[this] lazy val controllers_HomeController_index0_route = Route("GET",
+  // @LINE:1
+  private[this] lazy val controllers_TextboardController_get0_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix)))
   )
-  private[this] lazy val controllers_HomeController_index0_invoker = createInvoker(
-    HomeController_1.index(),
+  private[this] lazy val controllers_TextboardController_get0_invoker = createInvoker(
+    TextboardController_0.get(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.HomeController",
-      "index",
+      "controllers.TextboardController",
+      "get",
       Nil,
       "GET",
       this.prefix + """""",
-      """ An example controller showing a sample home page""",
-      Seq()
-    )
-  )
-
-  // @LINE:8
-  private[this] lazy val controllers_HomeController_explore1_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("explore")))
-  )
-  private[this] lazy val controllers_HomeController_explore1_invoker = createInvoker(
-    HomeController_1.explore(),
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.HomeController",
-      "explore",
-      Nil,
-      "GET",
-      this.prefix + """explore""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:9
-  private[this] lazy val controllers_HomeController_tutorial2_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("tutorial")))
+  // @LINE:2
+  private[this] lazy val controllers_TextboardController_post1_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix)))
   )
-  private[this] lazy val controllers_HomeController_tutorial2_invoker = createInvoker(
-    HomeController_1.tutorial(),
+  private[this] lazy val controllers_TextboardController_post1_invoker = createInvoker(
+    TextboardController_0.post(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.HomeController",
-      "tutorial",
+      "controllers.TextboardController",
+      "post",
       Nil,
-      "GET",
-      this.prefix + """tutorial""",
+      "POST",
+      this.prefix + """""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:13
-  private[this] lazy val controllers_Assets_versioned3_route = Route("GET",
+  // @LINE:4
+  private[this] lazy val controllers_Assets_versioned2_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned3_invoker = createInvoker(
-    Assets_0.versioned(fakeValue[String], fakeValue[Asset]),
+  private[this] lazy val controllers_Assets_versioned2_invoker = createInvoker(
+    Assets_1.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Assets",
@@ -116,7 +97,7 @@ class Routes(
       Seq(classOf[String], classOf[Asset]),
       "GET",
       this.prefix + """assets/""" + "$" + """file<.+>""",
-      """ Map static resources from the /public folder to the /assets URL path""",
+      """""",
       Seq()
     )
   )
@@ -124,28 +105,22 @@ class Routes(
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
-    // @LINE:7
-    case controllers_HomeController_index0_route(params@_) =>
+    // @LINE:1
+    case controllers_TextboardController_get0_route(params@_) =>
       call { 
-        controllers_HomeController_index0_invoker.call(HomeController_1.index())
+        controllers_TextboardController_get0_invoker.call(TextboardController_0.get())
       }
   
-    // @LINE:8
-    case controllers_HomeController_explore1_route(params@_) =>
+    // @LINE:2
+    case controllers_TextboardController_post1_route(params@_) =>
       call { 
-        controllers_HomeController_explore1_invoker.call(HomeController_1.explore())
+        controllers_TextboardController_post1_invoker.call(TextboardController_0.post())
       }
   
-    // @LINE:9
-    case controllers_HomeController_tutorial2_route(params@_) =>
-      call { 
-        controllers_HomeController_tutorial2_invoker.call(HomeController_1.tutorial())
-      }
-  
-    // @LINE:13
-    case controllers_Assets_versioned3_route(params@_) =>
+    // @LINE:4
+    case controllers_Assets_versioned2_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned3_invoker.call(Assets_0.versioned(path, file))
+        controllers_Assets_versioned2_invoker.call(Assets_1.versioned(path, file))
       }
   }
 }
